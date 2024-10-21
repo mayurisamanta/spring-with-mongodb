@@ -32,4 +32,16 @@ public class StudentService {
     public void deleteStudent(String id) {
         studentRepository.deleteById(id);
     }
+
+    public List<Student> getStudentByName(String name) {
+        return studentRepository.findByName(name);
+    }
+
+    public List<Student> getStudentByNameAndEmail(String name, String email) {
+        return studentRepository.findByNameAndEmail(name, email);
+    }
+
+    public List<Student> getStudentByNameOrEmail(String name, String email) {
+        return studentRepository.findByNameOrEmail(name, email);
+    }
 }

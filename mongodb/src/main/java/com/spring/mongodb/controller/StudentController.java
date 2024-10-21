@@ -39,4 +39,19 @@ public class StudentController {
         studentService.deleteStudent(id);
         return "Student deleted successfully";
     }
+
+    @GetMapping("/getByName/{name}")
+    public List<Student> getStudentByName(@PathVariable String name) {
+        return studentService.getStudentByName(name);
+    }
+
+    @GetMapping("getByNameAndEmail")
+    public List<Student> getStudentByNameAndEmail(@RequestParam String name, @RequestParam String email) {
+        return studentService.getStudentByNameAndEmail(name, email);
+    }
+
+    @GetMapping("getByNameOrEmail")
+    public List<Student> getStudentByNameOrEmail(@RequestParam String name, @RequestParam String email) {
+        return studentService.getStudentByNameOrEmail(name, email);
+    }
 }
