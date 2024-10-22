@@ -64,4 +64,9 @@ public class StudentController {
     public List<Student> getAllStudentsBySorting(@RequestParam String sortBy, @RequestParam String sortOrder) {
         return studentService.getAllStudentsBySorting(sortBy, sortOrder);
     }
+
+    @GetMapping("getByDepartmentName")
+    public List<Student> getStudentByDepartmentName(@RequestParam String departmentName) {
+        return studentService.getStudentByDepartmentName(departmentName);
+    }
 }
