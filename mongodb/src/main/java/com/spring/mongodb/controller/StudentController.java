@@ -59,4 +59,9 @@ public class StudentController {
     public List<Student> getAllStudentsByPagination(@RequestParam int pageNo, @RequestParam int pageSize) {
         return studentService.getAllStudentsByPagination(pageNo, pageSize);
     }
+
+    @GetMapping("getAllBySorting")
+    public List<Student> getAllStudentsBySorting(@RequestParam String sortBy, @RequestParam String sortOrder) {
+        return studentService.getAllStudentsBySorting(sortBy, sortOrder);
+    }
 }
