@@ -3,6 +3,8 @@ package com.spring.mongodb.service;
 import com.spring.mongodb.entity.Student;
 import com.spring.mongodb.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,5 +45,11 @@ public class StudentService {
 
     public List<Student> getStudentByNameOrEmail(String name, String email) {
         return studentRepository.findByNameOrEmail(name, email);
+    }
+
+    public List<Student> getAllStudentsByPagination(int pageNo, int pageSize) {
+
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return studentRepository.findAll(pageable).getContent();
     }
 }
