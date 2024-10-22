@@ -22,10 +22,18 @@ public class StudentService {
 
     public Student getStudent(String id) {
         return studentRepository.findById(id).orElse(null);
+        /*
+        Native query to find student by id
+        { '_id': ?0 }
+         */
     }
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
+        /*
+        Native query to find all students
+        { }
+         */
     }
 
     public Student updateStudent(Student student) {
